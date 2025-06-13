@@ -1,0 +1,19 @@
+#Node modules
+
+node_modules/
+
+# Buid output
+dist/
+
+# Environment variables
+.env
+
+# Logs
+*.Logs
+#Editor settings
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
