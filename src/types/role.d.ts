@@ -1,1 +1,0 @@
-export type Role = "村人" | "人狼" | "占い師";
