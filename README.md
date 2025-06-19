@@ -24,6 +24,12 @@ Node.js + LINE Messaging APIを使用して開発中。
 - Express（またはFastifyなどのHTTPサーバー）
 - GitHub Actions（CI/CD予定）
 
+## 起動方法
+ターミナルを二つ使う
+- npm run dev
+- ngrok http 3000
+- LIEN DevelopersにWebhook URLを入力
+
 ## 機能概要
 - ルーム作成 / 参加
 - プレイヤーの配役ランダム割り当て
