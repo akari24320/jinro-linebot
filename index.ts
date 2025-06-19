@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { Client, middleware, WebhookEvent, MessageEvent, FollowEvent, JoinEvent } from "@line/bot-sdk";
 import dotenv from "dotenv";
+import { handleMessageEvent } from "./handlers/messageHandler";
 
 dotenv.config();
 
@@ -28,14 +29,23 @@ app.post("/webhook", middleware(CONFIG), async (req: Request, res: Response) => 
     res.status(200).end();
     const events = req.body.events as WebhookEvent[];
     await Promise.all(events.map(async (event) => {
-        if (isReplyableEvent(event)) {
+        if (event.type === "message") {
             try {
-                await client.replyMessage(event.replyToken, { type: "text", text: "こんちゃ！" });
+                await handleMessageEvent(event as MessageEvent, client);
                 console.log("event", event);
             } catch (err) {
                 console.error("Reply error:", err);
             }
-        } else {
+        } 
+        // else if (isReplyableEvent(event)) {
+        //     // 他のイベント（例: follow, join）はテキストで返す
+        //     try {
+        //         await client.replyMessage(event.replyToken, { type: "text", text: "こんにちは！人狼ゲームがしたい場合は、「@人狼」と送ってね！" });
+        //     } catch (err) {
+        //         console.error("Reply error:", err);
+        //     }
+        // } 
+        else {
             console.log("replyTokenがないイベント:", event.type);
         }
     }));
