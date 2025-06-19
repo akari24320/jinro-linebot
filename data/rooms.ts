@@ -12,7 +12,7 @@ export function createRoom(groupId: string, creatorId: string): Room {
         id: `room-${Date.now()}`,
         groupId,
         createdAt: new Date(),
-        members: [creatorId]
+        members: []
     };
     rooms.push(room);
     return room;
@@ -28,4 +28,16 @@ export function deleteRoomByGroupId(groupId: string): Room | undefined {
         return rooms.splice(idx, 1)[0];
     }
     return undefined;
+}
+
+// join
+
+export function addMemberToRoom(groupId: string, userId: string): boolean {
+    const room = rooms.find(room => room.groupId === groupId);
+    if (!room) return false;
+    if (!room.members.includes(userId)) {
+        room.members.push(userId);
+        return true;
+    }
+    return false; // すでに参加済み
 }
