@@ -30,9 +30,15 @@ app.post("/webhook", middleware(CONFIG), async (req: Request, res: Response) => 
     const events = req.body.events as WebhookEvent[];
     await Promise.all(events.map(async (event) => {
         if (event.type === "message") {
+            await handleMessageEvent(event as MessageEvent, client);
+        } else if (event.type === "join") {
+            // グループ招待時の挨拶
+            const joinEvent = event as JoinEvent;
             try {
-                await handleMessageEvent(event as MessageEvent, client);
-                console.log("event", event);
+                await client.replyMessage(joinEvent.replyToken, {
+                    type: "text",
+                    text: "こんにちは！私は人狼ゲームbotです。\n「@人狼」でゲームを始められます。"
+                });
             } catch (err) {
                 console.error("Reply error:", err);
             }
