@@ -5,8 +5,8 @@ Node.js + LINE Messaging APIを使用して開発中。
 ## ディレクトリ構成
 - jinro-linebot/
 - ├── flexTemplates/
-- │   ├── roomCreated.ts
-- │   └── 
+- │   ├── roomCreate.ts
+- │   └── roomJoin.ts
 - ├── index.ts               # エントリーポイント
 - ├── handlers/              # メッセージ処理系
 - │   ├── commands/          # 各コマンドまとめ
