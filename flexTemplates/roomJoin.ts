@@ -1,6 +1,6 @@
 import { FlexMessage } from "@line/bot-sdk";
 
-export const roomCreateFlex: FlexMessage = {
+export const roomJoinFlex: FlexMessage = {
     type: "flex",
     altText: "人狼ゲームのカードメッセージ",
     contents: {
@@ -23,7 +23,7 @@ export const roomCreateFlex: FlexMessage = {
             contents: [
                 {
                     type: "text",
-                    text: "人狼ゲーム",
+                    text: "村が出来た！",
                     weight: "bold",
                     size: "xl",
                     align: "center"
@@ -45,7 +45,7 @@ export const roomCreateFlex: FlexMessage = {
                                     color: "#666666",
                                     size: "sm",
                                     flex: 5,
-                                    text: "人狼ゲームを開始します。「村を作成」を押してゲームルームを作成してください。"
+                                    text: "村が出来ました！「参加」を押して入村してください。"
                                 }
                             ]
                         }
@@ -64,8 +64,8 @@ export const roomCreateFlex: FlexMessage = {
                     height: "sm",
                     action: {
                         type: "message",
-                        label: "村を作成",
-                        text: "@村を作成"
+                        label: "参加",
+                        text: "@参加"
                     }
                 }
             ],

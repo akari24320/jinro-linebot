@@ -9,8 +9,13 @@ Node.js + LINE Messaging APIを使用して開発中。
 - │   └── 
 - ├── index.ts               # エントリーポイント
 - ├── handlers/              # メッセージ処理系
-- │   ├── messageHandler.ts
-- │   └── joinHandler.ts
+- │   ├── commands/          # 各コマンドまとめ
+- │   │     ├── handleJinro.ts
+- │   │     ├── handleCreateRoom.ts
+- │   │     ├── handleJoin.ts
+- │   │     ├── handleEndRoom.ts
+- │   │     └── Handlers.ts  # 各コマンドの書き出し
+- │   └── messageHandler.ts
 - ├── data/                  # 状態・ルーム情報などの管理
 - │   └── rooms.ts
 - ├── utils/                 # 汎用的な処理（配役割り当てなど）
