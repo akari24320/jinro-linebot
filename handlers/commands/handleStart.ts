@@ -20,5 +20,13 @@ export async function handleStart(event: MessageEvent, client: Client) {
         return;
     }
 
-    await client.replyMessage(event.replyToken, rolePatternSelectFlex(patterns));
+    // 役職パターン選択の促しとFlexメッセージを送信
+    await client.replyMessage(event.replyToken, [
+        {
+            type: "text",
+            text: "役職パターンを選択してください。"
+        },
+        rolePatternSelectFlex(patterns)
+    ]);
+    // await client.replyMessage(event.replyToken, rolePatternSelectFlex(patterns));
 }
