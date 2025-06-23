@@ -14,6 +14,7 @@ Node.js + LINE Messaging APIを使用して開発中。
 - │   │     ├── handleCreateRoom.ts
 - │   │     ├── handleJoin.ts
 - │   │     ├── handleEndRoom.ts
+- │   │     ├── handleStart.ts
 - │   │     └── Handlers.ts  # 各コマンドの書き出し
 - │   └── messageHandler.ts
 - ├── data/                  # 状態・ルーム情報などの管理
