@@ -1,5 +1,5 @@
 import { MessageEvent, Client } from "@line/bot-sdk";
-import { handleJinro, handleCreateRoom, handleJoin, handleEndRoom, handleStart } from "./commands/Handlers";
+import { handleJinro, handleCreateRoom, handleJoin, handleEndRoom, handleSelect } from "./commands/Handlers";
 
 export async function handleMessageEvent(event: MessageEvent, client: Client) {
     if (event.message.type !== "text") return;
@@ -18,8 +18,8 @@ export async function handleMessageEvent(event: MessageEvent, client: Client) {
         case "@終了":
             await handleEndRoom(event, client);
             break;
-        case "@開始":
-            await handleStart(event, client);
+        case "@決定":
+            await handleSelect(event, client);
             break;
         // 今後コマンド追加もここに
         default:
